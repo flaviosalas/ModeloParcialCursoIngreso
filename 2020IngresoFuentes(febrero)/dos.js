@@ -4,9 +4,10 @@ function mostrar()
   var peso;
   var precio;
   var tipo;
-  var precioDescuentoA = 0;
-  var precioDescuentoB = 0;
+  var precioDescuento = 0;
   var promedioPesoKilo = 0;
+  var importeTotal = 0;
+  var importeDescuento = 0;
   var seguir;
 
   do {
@@ -23,14 +24,20 @@ function mostrar()
       tipo = prompt("Tipo invalido. Ingrese el tipo:")
     }
 
-    //El promedio de precio por kilo en total.
-    promedioPesoKilo = precio / peso;
-    
+    if ( peso > 100) {
+      precioDescuento = precio - (precio * 15 / 100)
+    }
+    if ( peso > 400) {
+      precioDescuento = precio - (precio * 25 / 100)
+    }
 
+    //Importe total
+    importeTotal = importeTotal + precio;
+    
     seguir = prompt("Desea ingresar mas datos?")
   }while (seguir == "s")
 
-  document.write(precioDescuentoA)
+  document.write(importeTotal)
 
 
 
